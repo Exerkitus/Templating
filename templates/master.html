@@ -10,14 +10,15 @@
     {% endfor %}
   </ul>
 
-  <div class="question-container">
+  <div class="questions-container">
     {% for part in parts %}
     <div class="question {{ 'active' if loop.first }}" id="question{{ loop.index }}">
       <h1>{{ part.id }}. {{ part.title }}</h1>
       <p>{{ part.statement }}</p>
 
       {% if part.response %}
-      <div class="response-container">
+      <div class="response-wrapper">
+        <p><i>Attempting to load module</i></p>
         {{ res[part.response.type](part.response.data) }}
       </div>
       {% endif %}

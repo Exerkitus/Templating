@@ -17,6 +17,7 @@ master = env.get_template("master.html")
 # Test render
 renderedHTML = master.render(sheet)
 
+# For debugging
 print(renderedHTML)
 
 # Save rendered HTML to File
