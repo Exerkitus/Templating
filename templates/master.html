@@ -1,0 +1,31 @@
+{# Import response area macros #}
+{% import 'response_areas.html' as res %}
+
+<div class="wrapper">
+  <ul class="tabs-container">
+    {% for part in parts %}
+    <li class="tab {{ 'active' if loop.first }}" id="tab{{ loop.index }}">
+      <p>{{ part.id }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="question-container">
+    {% for part in parts %}
+    <div class="question {{ 'active' if loop.first }}" id="question{{ loop.index }}">
+      <h1>{{ part.id }}. {{ part.title }}</h1>
+      <p>{{ part.statement }}</p>
+
+      {% if part.response %}
+      <div class="response-container">
+        {{ res[part.response.type](part.response.data) }}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+  /* Import Custom Javascript Code from the server */
+</script>
