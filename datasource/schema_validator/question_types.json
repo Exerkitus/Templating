@@ -1,0 +1,71 @@
+[
+    {
+        "name": "responseNan",
+        "mode": "List",
+        "display": {
+            "display": "menu",
+            "permute": true
+        },
+        "grader": "exact",
+        "weighting": 1,
+        "answer": [
+            "Option 1",
+            "Option 2",
+            "Option 3"
+        ],
+        "credit": [
+            0.0,
+            1.0,
+            0.0
+        ],
+        "comment": ""
+    },
+    {
+        "name": "responseNan",
+        "mode": "Maple",
+        "type": "formula",
+        "plot": "",
+        "allow2d": 1,
+        "mathConversionMode": 0,
+        "maple_answer": "5",
+        "maple": "evalb(($ANSWER)-($RESPONSE)=0);",
+        "weighting": 1,
+        "comment": "",
+        "custompreview": ""
+    },
+    {
+        "name": "responseNan",
+        "mode": "Non Permuting Multiple Choice",
+        "display": "vertical",
+        "answer": 1,
+        "choices": [
+            "<p>Choice 1</p>",
+            "<p>Choice 2</p>",
+            "<p>Choice 3</p>"
+        ],
+        "weighting": 1,
+        "comment": ""
+    },
+    {
+        "name": "responseNan",
+        "mode": "Numeric",
+        "negStyle": "minus",
+        "numStyle": "thousands scientific",
+        "grading": "exact_value",
+        "showUnits": true,
+        "answer": {
+            "num": 1000,
+            "units": "kg"
+        },
+        "weighting": 1,
+        "comment": ""
+    },
+    {
+        "name": "responseNan",
+        "mode": "True False",
+        "answer": 1,
+        "choices": [true, false],
+        "weighting": 1,
+        "comment": ""
+    }
+]

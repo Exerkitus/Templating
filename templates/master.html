@@ -1,9 +1,9 @@
 {# Import response area macros #}
-{% import 'response_areas.html' as res %}
+{% from 'response_areas.html' import response_area %}
 
 <div class="wrapper">
   <ul class="tabs-container">
-    {% for part in parts %}
+    {% for part in sheet.parts %}
     <li class="tab {{ 'active' if loop.first }}" id="tab{{ loop.index }}">
       <p>{{ part.id }}</p>
     </li>
@@ -11,15 +11,14 @@
   </ul>
 
   <div class="questions-container">
-    {% for part in parts %}
+    {% for part in sheet.parts %}
     <div class="question {{ 'active' if loop.first }}" id="question{{ loop.index }}">
       <h1>{{ part.id }}. {{ part.title }}</h1>
       <p>{{ part.statement }}</p>
 
       {% if part.response %}
       <div class="response-wrapper">
-        <p><i>Attempting to load module</i></p>
-        {{ res[part.response.type](part.response.data) }}
+        {{ response_area(part.response, schemas) }}
       </div>
       {% endif %}
     </div>

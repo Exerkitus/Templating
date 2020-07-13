@@ -5,16 +5,12 @@
       "title": "Some title",
       "statement": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
       "response": {
-        "type": "TrueFalse",
-        "data": {
-          "mode": "True False",
-          "answer": 1,
-          "name": "responseNaN",
-          "choice.1": "True",
-          "choice.2": "False",
-          "comment": "",
-          "weighting": 1
-        }
+        "mode": "True False",
+        "answer": 1,
+        "name": "responseNaN",
+        "choice": [true, false],
+        "comment": "",
+        "weighting": 1
       }
     },
     {

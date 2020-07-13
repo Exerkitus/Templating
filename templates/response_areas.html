@@ -1,6 +1,8 @@
 {# Renderers for the Mobius Response areas #}
 
-{# True/False #}
-{% macro TrueFalse(params) -%}
-<span class="inline truefalse" contenteditable="false" data-questiontext="%3Cinput%20type%3D%22text%22%20size%3D%2220%22%20value%3D%22True%20or%20False%22%20class%3D%22blankdisabled%20form-control%22%20readonly%3D%22readonly%22%3E" data-source="{{ params|urlencode|replace('&', '%40') }}{{ "%40"|e }}" id="sro_id_1">&zwnj; </span>
+{# Generic response area #}
+{% macro response_area(data, schemas) -%}
+<span data-source="{{ validate_and_stringify(data, schemas) }}%40" id="sro_id_1">&zwnj; </span>
 {%- endmacro  %}
+
+{#validate_and_stringify(data, schemas)#}

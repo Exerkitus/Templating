@@ -1,0 +1,244 @@
+{
+    "Maple": {
+        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+        "title": "Schema for maple question type variables.",
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "mode": {
+                "type": "string",
+                "const": "Maple"
+            },
+            "type": {
+                "type": "string",
+                "enum": ["formula", "maple"]
+            },
+            "plot": {
+                "type": "string",
+                "const": ""
+            },
+            "allow2d": {"type": "integer"},
+            "mathConversionMode": {
+                "type": "number",
+                "const": 0
+            },
+            "maple_answer": {
+                "type": "string"
+            },
+            "maple": {
+                "type": "string",
+                "const": "evalb(($ANSWER)-($RESPONSE)=0);"
+            },
+            "weighting": {"type": "number"},
+            "comment": {"type": "string"},
+            "custompreview": {"type": "string"}
+        },
+        "additionalProperties": false,
+        "required": [
+            "name",
+            "mode",
+            "type",
+            "plot",
+            "allow2d",
+            "mathConversionMode",
+            "maple_answer",
+            "maple",
+            "weighting",
+            "comment",
+            "custompreview"
+        ],
+        "anyOf": [
+            {
+                "properties": {
+                    "type": {"const": "formula"},
+                    "allow2d": {"const": 1}
+                }
+            },
+            {
+                "properties": {
+                    "type": {"const": "formula"},
+                    "allow2d": {"enum": [0, 2]}
+                }
+            }
+        ]
+    },
+    "List": {
+        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+        "title": "Schema for list question type variables.",
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "mode": {
+                "type": "string",
+                "const": "List"
+            },
+            "display": {
+                "type": "object",
+                "properties": {
+                    "display": {
+                        "type": "string",
+                        "enum": ["menu", "text"]
+                    },
+                    "permute": {"type": "boolean"}
+                },
+                "required": ["display", "permute"]
+            },
+            "grader": {
+                "type": "string",
+                "enum": ["exact", "relaxed", "regex"]
+            },
+            "options": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "answer": {"type": "string"},
+                        "credit": {"type": "number"}
+                    },
+                    "required": ["answer", "credit"]
+                }
+            },
+            "weighting": {"type": "number"},
+            "comment": {"type": "string"}
+        },
+        "additionalProperties": false,
+        "required": [
+            "name",
+            "mode",
+            "display",
+            "grader",
+            "options",
+            "weighting",
+            "comment"
+        ]
+    },
+    "Non Permuting Multiple Choice": {
+        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+        "title": "Schema for multiple choice question type variables.",
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "mode": {
+                "type": "string",
+                "const": "Non Permuting Multiple Choice"
+            },
+            "display": {
+                "type": "string",
+                "enum": ["vertical", "horizontal"]
+            },
+            "answer": {"type": "integer"},
+            "choices": {
+                "type": "array",
+                "items": {"type": "string"}
+            },
+            "weighting": {"type": "number"},
+            "comment": {"type": "string"}
+        },
+        "additionalProperties": false,
+        "required": [
+            "name",
+            "mode",
+            "display",
+            "answer",
+            "choices",
+            "weighting",
+            "comment"
+        ]
+    },
+    "Numeric": {
+        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+        "title": "Schema for numeric question type variables.",
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "mode": {
+                "type": "string",
+                "const": "Numeric"
+            },
+            "negStyle": {
+                "type": "string",
+                "enum": ["minus", "paren", "both"]
+            },
+            "numStyle": {"type": "string"},
+            "grading": {"type": "string"},
+            "showUnits": {"type": "boolean"},
+            "answer": {
+                "type": "object",
+                "properties": {
+                    "num": {"type": "number"},
+                    "units": {"type": "string"}
+                },
+                "required": ["num", "units"]
+            },
+            "err": {"type": "number"},
+            "digit": {"type": "integer"},
+            "perc": {"type": "number"},
+            "weighting": {"type": "number"},
+            "comment": {"type": "string"}
+        },
+        "additionalProperties": false,
+        "required": [
+            "name",
+            "mode",
+            "negStyle",
+            "numStyle",
+            "grading",
+            "showUnits",
+            "answer",
+            "weighting",
+            "comment"
+        ],
+        "anyOf": [
+            {"properties": {"grading": {"const": "exact_value"}}},
+            {
+                "properties": {"grading": {"const": "exact_sigd"}},
+                "required": ["digit"]
+            },
+            {
+                "properties": {"grading": {"const": "toler_sigd"}},
+                "required": ["err", "digit"]
+            },
+            {
+                "properties": {"grading": {"const": "toler_perc"}},
+                "required": ["perc"]
+            }
+        ]
+    },
+    "True False": {
+        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+        "title": "Schema for true/false question type variables.",
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "mode": {
+                "type": "string",
+                "const": "True False"
+            },
+            "answer": {
+                "type": "integer",
+                "enum": [0, 1]
+            },
+            "choice": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                    "type": "boolean",
+                    "enum": [true, false],
+                    "uniqueItems": true
+                }
+            },
+            "weighting": {"type": "number"},
+            "comment": {"type": "string"}
+        },
+        "additionalProperties": false,
+        "required": [
+            "name",
+            "mode",
+            "answer",
+            "choice",
+            "weighting",
+            "comment"
+        ]
+    }
+}
