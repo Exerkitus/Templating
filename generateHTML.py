@@ -3,9 +3,6 @@ import json
 from os.path import join
 from datasource.stringify_datasource import validate_and_stringify
 
-def testFunction():
-    return "ABCDE"
-
 # Load sheet data from file
 with open("Sheet.json", 'r') as file:
     sheet = json.load(file)
