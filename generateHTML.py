@@ -3,6 +3,12 @@ import json
 from os.path import join
 from datasource_parser import validate_and_parse_question_data
 
+##### GLOBALS #####
+class consts:
+    SCRIPTS_LOCATION = "/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt"
+    THEME_LOCATION = "/themes/cad8b55c-b186-4899-a406-b92966ee7766"
+###################
+
 # Load sheet data from file
 with open("Sheet.json", 'r') as file:
     sheet = json.load(file)
@@ -27,7 +33,7 @@ env.globals.update(validate_and_parse_question_data=validate_and_parse_question_
 master = env.get_template("master.html")
 
 # Render sheet data using master template
-renderedHTML = master.render(sheet=sheet, schemas=schemas, defaults=defaults)
+renderedHTML = master.render(sheet=sheet, schemas=schemas, defaults=defaults, consts=consts)
 
 # For debugging
 print(renderedHTML)

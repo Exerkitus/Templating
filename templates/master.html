@@ -1,6 +1,8 @@
 {# Import response area macros #}
 {% from 'response_area.html' import response_area %}
 
+<link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
+
 <div class="wrapper">
   <div class="master-statement">
     {{ sheet.master }}
@@ -30,6 +32,6 @@
   </div>
 </div>
 
-<script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+<script src="{{ consts.SCRIPTS_LOCATION }}" type="application/javascript">
   /* Import Custom Javascript Code from the server */
 </script>
