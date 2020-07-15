@@ -35,16 +35,16 @@
         },
         "additionalProperties": false,
         "required": [
-            "name",
-            "mode",
-            "type",
-            "plot",
-            "allow2d",
-            "mathConversionMode",
-            "maple_answer",
-            "maple",
-            "weighting",
-            "comment",
+            "name", 
+            "mode", 
+            "type", 
+            "plot", 
+            "allow2d", 
+            "mathConversionMode", 
+            "maple_answer", 
+            "maple", 
+            "weighting", 
+            "comment", 
             "custompreview"
         ],
         "anyOf": [
@@ -87,16 +87,15 @@
                 "type": "string",
                 "enum": ["exact", "relaxed", "regex"]
             },
-            "options": {
+            "answer": {
                 "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "answer": {"type": "string"},
-                        "credit": {"type": "number"}
-                    },
-                    "required": ["answer", "credit"]
-                }
+                "minItems": 1,
+                "items": {"type": "string"}
+            },
+            "credit": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "number"}
             },
             "weighting": {"type": "number"},
             "comment": {"type": "string"}
@@ -107,7 +106,8 @@
             "mode",
             "display",
             "grader",
-            "options",
+            "answer",
+            "credit",
             "weighting",
             "comment"
         ]
@@ -127,8 +127,9 @@
                 "enum": ["vertical", "horizontal"]
             },
             "answer": {"type": "integer"},
-            "choices": {
+            "choice": {
                 "type": "array",
+                "minItems": 1,
                 "items": {"type": "string"}
             },
             "weighting": {"type": "number"},
@@ -140,7 +141,7 @@
             "mode",
             "display",
             "answer",
-            "choices",
+            "choice",
             "weighting",
             "comment"
         ]
@@ -223,8 +224,8 @@
                 "minItems": 2,
                 "maxItems": 2,
                 "items": {
-                    "type": "boolean",
-                    "enum": [true, false],
+                    "type": "string",
+                    "enum": ["true", "false"],
                     "uniqueItems": true
                 }
             },

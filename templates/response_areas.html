@@ -1,8 +1,0 @@
-{# Renderers for the Mobius Response areas #}
-
-{# Generic response area #}
-{% macro response_area(data, schemas) -%}
-<span data-source="{{ validate_and_stringify(data, schemas) }}%40" id="sro_id_1">&zwnj; </span>
-{%- endmacro  %}
-
-{#validate_and_stringify(data, schemas)#}

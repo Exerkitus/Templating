@@ -1,29 +1,33 @@
 from jinja2 import Environment, FileSystemLoader
 import json
 from os.path import join
-from datasource.stringify_datasource import validate_and_stringify
+from datasource_parser import validate_and_parse_question_data
 
 # Load sheet data from file
 with open("Sheet.json", 'r') as file:
     sheet = json.load(file)
 
-# Load schemas
-with open("datasource/schema_validator/question_schemas.json", 'r') as file:
+# Load response area schemas
+with open(join("datasource_parser", "questions", "schemas.json"), 'r') as file:
     schemas = json.load(file)
+
+# Load response area defaults
+with open(join("datasource_parser", "questions", "defaults.json"), 'r') as file:
+    defaults = json.load(file)
 
 # Configure jinja environment
 env = Environment(loader=FileSystemLoader("./templates"),
-                         trim_blocks=True,
-                         lstrip_blocks=True)
+                  trim_blocks=True,
+                  lstrip_blocks=True)
 
-# Load custom validate_and_stringify filter
-env.globals.update(validate_and_stringify=validate_and_stringify)
+# Load custom validate_and_parse_question_data filter
+env.globals.update(validate_and_parse_question_data=validate_and_parse_question_data)
 
 # Load master template from environment
 master = env.get_template("master.html")
 
-# Test render
-renderedHTML = master.render(sheet=sheet, schemas=schemas)
+# Render sheet data using master template
+renderedHTML = master.render(sheet=sheet, schemas=schemas, defaults=defaults)
 
 # For debugging
 print(renderedHTML)

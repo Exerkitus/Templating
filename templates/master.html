@@ -1,7 +1,11 @@
 {# Import response area macros #}
-{% from 'response_areas.html' import response_area %}
+{% from 'response_area.html' import response_area %}
 
 <div class="wrapper">
+  <div class="master-statement">
+    {{ sheet.master }}
+  </div>
+
   <ul class="tabs-container">
     {% for part in sheet.parts %}
     <li class="tab {{ 'active' if loop.first }}" id="tab{{ loop.index }}">
@@ -18,7 +22,7 @@
 
       {% if part.response %}
       <div class="response-wrapper">
-        {{ response_area(part.response, schemas) }}
+        {{ response_area(part.response, schemas, defaults) }}
       </div>
       {% endif %}
     </div>

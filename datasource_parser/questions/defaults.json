@@ -1,0 +1,44 @@
+{
+    "List": {
+        "name": "responseNan",
+        "display": {
+            "display": "menu",
+            "permute": true
+        },
+        "grader": "exact",
+        "weighting": 1,
+        "comment": ""
+    },
+    "Maple": {
+        "name": "responseNan",
+        "type": "formula",
+        "plot": "",
+        "allow2d": 1,
+        "mathConversionMode": 0,
+        "maple": "evalb(($ANSWER)-($RESPONSE)=0);",
+        "weighting": 1,
+        "comment": "",
+        "custompreview": ""
+    },
+    "Non Permuting Multiple Choice": {
+        "name": "responseNan",
+        "display": "vertical",
+        "weighting": 1,
+        "comment": ""
+    },
+    "Numeric": {
+        "name": "responseNan",
+        "negStyle": "minus",
+        "numStyle": "thousands scientific",
+        "grading": "exact_value",
+        "showUnits": false,
+        "weighting": 1,
+        "comment": ""
+    },
+    "True False": {
+        "name": "responseNan",
+        "choice": ["false", "true"],
+        "weighting": 1,
+        "comment": ""
+    }
+}
