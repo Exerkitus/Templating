@@ -4,22 +4,22 @@
 <link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
 
 <div class="wrapper">
-  <div class="master-statement">
-    {{ sheet.master }}
-  </div>
+  <header>
+    <h1>{{ question.number }} {{ question.title }}</h1>
+    <p class="master-statement">{{ question.master_statement }}</p>
+  </header>
 
   <ul class="tabs-container">
-    {% for part in sheet.parts %}
+    {% for part in question.parts %}
     <li class="tab {{ 'active' if loop.first }}" id="tab{{ loop.index }}">
-      <p>{{ part.id }}</p>
+      <p>{{ question.number }}{{ part.id }}</p>
     </li>
     {% endfor %}
   </ul>
 
   <div class="questions-container">
-    {% for part in sheet.parts %}
+    {% for part in question.parts %}
     <div class="question {{ 'active' if loop.first }}" id="question{{ loop.index }}">
-      <h1>{{ part.id }}. {{ part.title }}</h1>
       <p>{{ part.statement }}</p>
 
       {% if part.response %}

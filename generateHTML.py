@@ -9,9 +9,9 @@ class consts:
     THEME_LOCATION = "/themes/cad8b55c-b186-4899-a406-b92966ee7766"
 ###################
 
-# Load sheet data from file
-with open("Sheet.json", 'r') as file:
-    sheet = json.load(file)
+# Load question data from file
+with open("question.json", 'r') as file:
+    question = json.load(file)
 
 # Load response area schemas
 with open(join("datasource_parser", "questions", "schemas.json"), 'r') as file:
@@ -33,7 +33,7 @@ env.globals.update(validate_and_parse_question_data=validate_and_parse_question_
 master = env.get_template("master.html")
 
 # Render sheet data using master template
-renderedHTML = master.render(sheet=sheet, schemas=schemas, defaults=defaults, consts=consts)
+renderedHTML = master.render(question=question, schemas=schemas, defaults=defaults, consts=consts)
 
 # For debugging
 print(renderedHTML)
