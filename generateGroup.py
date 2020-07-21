@@ -56,8 +56,12 @@ else:
     quit()
 
 # Fetch group information
-with open(os.path.join(folder, "groupInfo.json"), 'r') as file:
-    groupInfo = json.load(file)
+try:
+    with open(os.path.join(folder, "groupInfo.json"), 'r') as file:
+        groupInfo = json.load(file)
+except FileNotFoundError:
+    print("[ERROR] Folder specified does not contain the groupInfo.json file")
+    quit()
 
 # If the group has not been given a uid yet, give it one
 if "uid" not in groupInfo:
