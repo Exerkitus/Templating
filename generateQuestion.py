@@ -58,7 +58,7 @@ master = env.get_template("master.xml")
 
 ####### RENDER AND EXPORT #######
 # Render sheet data using master template
-renderedHTML = master.render(question=question)
+renderedHTML = master.render(questions=[question])
 
 # For debugging
 print(renderedHTML)
