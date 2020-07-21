@@ -1,0 +1,66 @@
+{
+   "number": "0.0",
+   "title": "All Response Area Question [Imported]",
+   "master_statement": "This question tests all the response areas that have been considered and implemented into the templating engine.",
+   "parts": [
+      {
+         "id": " List",
+         "statement": "List response area",
+         "response": {
+            "mode": "List",
+            "answers": [
+               "Option 1",
+               "Option 2",
+               "Option 3"
+            ],
+            "credits": [
+               0.0,
+               1.0,
+               0.0
+            ]
+         }
+      },
+      {
+         "id": " Maple",
+         "statement": "Maple response area",
+         "response": {
+            "mode": "Maple",
+            "mapleAnswer": "pi"
+         }
+      },
+      {
+         "id": " MCQ",
+         "statement": "Non Permuting Multiple Choice response area",
+         "response": {
+            "mode": "Non Permuting Multiple Choice",
+            "answer": 1,
+            "choices": [
+               "<p>Choice 1</p>",
+               "<p>Choice 2</p>",
+               "<p>Choice 3</p>"
+            ]
+         }
+      },
+      {
+         "id": " Numeric",
+         "statement": "Numeric response area",
+         "response": {
+            "mode": "Numeric",
+            "showUnits": true,
+            "answer": {
+               "num": 1000,
+               "units": "kg"
+            }
+         }
+      },
+      {
+         "id": " TF",
+         "statement": "True/False response area",
+         "response": {
+            "mode": "True False",
+            "answer": 1
+         }
+      }
+   ],
+   "uid": "2b74f465-717f-4bb8-b3c7-ee0944443294"
+}

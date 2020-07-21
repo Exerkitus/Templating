@@ -22,7 +22,7 @@
                 "type": "number",
                 "const": 0
             },
-            "maple_answer": {
+            "mapleAnswer": {
                 "type": "string"
             },
             "maple": {
@@ -35,16 +35,16 @@
         },
         "additionalProperties": false,
         "required": [
-            "name", 
-            "mode", 
-            "type", 
-            "plot", 
-            "allow2d", 
-            "mathConversionMode", 
-            "maple_answer", 
-            "maple", 
-            "weighting", 
-            "comment", 
+            "name",
+            "mode",
+            "type",
+            "plot",
+            "allow2d",
+            "mathConversionMode",
+            "mapleAnswer",
+            "maple",
+            "weighting",
+            "comment",
             "custompreview"
         ],
         "anyOf": [
@@ -56,7 +56,7 @@
             },
             {
                 "properties": {
-                    "type": {"const": "formula"},
+                    "type": {"const": "maple"},
                     "allow2d": {"enum": [0, 2]}
                 }
             }
@@ -87,12 +87,12 @@
                 "type": "string",
                 "enum": ["exact", "relaxed", "regex"]
             },
-            "answer": {
+            "answers": {
                 "type": "array",
                 "minItems": 1,
                 "items": {"type": "string"}
             },
-            "credit": {
+            "credits": {
                 "type": "array",
                 "minItems": 1,
                 "items": {"type": "number"}
@@ -106,8 +106,8 @@
             "mode",
             "display",
             "grader",
-            "answer",
-            "credit",
+            "answers",
+            "credits",
             "weighting",
             "comment"
         ]
@@ -127,7 +127,7 @@
                 "enum": ["vertical", "horizontal"]
             },
             "answer": {"type": "integer"},
-            "choice": {
+            "choices": {
                 "type": "array",
                 "minItems": 1,
                 "items": {"type": "string"}
@@ -141,7 +141,7 @@
             "mode",
             "display",
             "answer",
-            "choice",
+            "choices",
             "weighting",
             "comment"
         ]
@@ -219,7 +219,7 @@
                 "type": "integer",
                 "enum": [0, 1]
             },
-            "choice": {
+            "choices": {
                 "type": "array",
                 "minItems": 2,
                 "maxItems": 2,
@@ -237,7 +237,7 @@
             "name",
             "mode",
             "answer",
-            "choice",
+            "choices",
             "weighting",
             "comment"
         ]

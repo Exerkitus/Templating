@@ -1,6 +1,4 @@
-{# Import response area macros #}
-{% from 'response_area.html' import response_area %}
-
+{% macro questionText(question) %}
 <link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
 
 <div class="wrapper">
@@ -11,20 +9,21 @@
 
   <ul class="tabs-container">
     {% for part in question.parts %}
-    <li class="tab {{ 'active' if loop.first }}" id="tab{{ loop.index }}">
+    <li class="tab{{ ' active' if loop.first }}" id="tab{{ loop.index }}">
       <p>{{ question.number }}{{ part.id }}</p>
     </li>
     {% endfor %}
   </ul>
 
-  <div class="questions-container">
+  <div class="parts-container">
     {% for part in question.parts %}
-    <div class="question {{ 'active' if loop.first }}" id="question{{ loop.index }}">
+    <div class="part{{ ' active' if loop.first }}" id="part{{ loop.index }}">
       <p>{{ part.statement }}</p>
 
       {% if part.response %}
       <div class="response-wrapper">
-        {{ response_area(part.response, schemas, defaults) }}
+        {# Mark location of response area #}
+        <{{ part.response }}>
       </div>
       {% endif %}
     </div>
@@ -34,4 +33,4 @@
 
 <script src="{{ consts.SCRIPTS_LOCATION }}" type="application/javascript">
   /* Import Custom Javascript Code from the server */
-</script>
+</script>{% endmacro %}

@@ -11,9 +11,9 @@
     },
     "Maple": {
         "name": "responseNan",
-        "type": "formula",
+        "type": "maple",
         "plot": "",
-        "allow2d": 1,
+        "allow2d": 0,
         "mathConversionMode": 0,
         "maple": "evalb(($ANSWER)-($RESPONSE)=0);",
         "weighting": 1,
@@ -37,7 +37,7 @@
     },
     "True False": {
         "name": "responseNan",
-        "choice": ["false", "true"],
+        "choices": ["false", "true"],
         "weighting": 1,
         "comment": ""
     }

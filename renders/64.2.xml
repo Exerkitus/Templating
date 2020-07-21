@@ -1,0 +1,98 @@
+<courseModule>
+
+  <module>
+    <autoModule>true</autoModule>
+  </module>
+
+  <questions>
+
+    <question uid="3e4dc3b9-f61b-4eb8-a421-92c3ae2994eb" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+      <mode>Inline</mode>
+      <name>
+        <![CDATA[ 64.2 Another Question title ]]>
+      </name>
+      <editing>useHTML</editing>
+      <privacy>10</privacy>
+      <allowRepublish>false</allowRepublish>
+      <attributeAuthor>true</attributeAuthor>
+      <modifiedIn>15.0</modifiedIn>
+      <difficulty>0.0</difficulty>
+      <text>
+        <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1>64.2 Another Question title</h1>
+            <p class="master-statement">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!</p>
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>64.2a</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>64.2b</p>
+            </li>
+            <li class="tab" id="tab3">
+              <p>64.2c</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p>Part a</p>
+
+              <div class="response-wrapper">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <p>Something something something something something something</p>
+
+            </div>
+            <div class="part" id="part3">
+              <p>Something else.....</p>
+
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+      </text>
+      <numbering>alpha</numbering>
+
+      <parts>
+        <part>
+          <mode>
+            <![CDATA[ Non Permuting Multiple Choice ]]>
+          </mode>
+          <answer>1</answer>
+          <choices>
+            <choice>
+              <![CDATA[ <p>Choice 1</p> ]]>
+            </choice>
+            <choice>
+              <![CDATA[ <p>Choice 2</p> ]]>
+            </choice>
+            <choice>
+              <![CDATA[ <p>Choice 3</p> ]]>
+            </choice>
+          </choices>
+          <name>
+            <![CDATA[ responseNan ]]>
+          </name>
+          <display>
+            <![CDATA[ vertical ]]>
+          </display>
+          <weighting>1</weighting>
+          <comment>
+            <![CDATA[  ]]>
+          </comment>
+        </part>
+      </parts>
+
+    </question>
+  </questions>
+</courseModule>

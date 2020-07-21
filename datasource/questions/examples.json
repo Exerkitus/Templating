@@ -8,12 +8,12 @@
         },
         "grader": "exact",
         "weighting": 1,
-        "answer": [
+        "answers": [
             "Option 1",
             "Option 2",
             "Option 3"
         ],
-        "credit": [
+        "credits": [
             0.0,
             1.0,
             0.0
@@ -27,7 +27,7 @@
         "plot": "",
         "allow2d": 1,
         "mathConversionMode": 0,
-        "maple_answer": "5",
+        "mapleAnswer": "5",
         "maple": "evalb(($ANSWER)-($RESPONSE)=0);",
         "weighting": 1,
         "comment": "",
@@ -38,7 +38,7 @@
         "mode": "Non Permuting Multiple Choice",
         "display": "vertical",
         "answer": 1,
-        "choice": [
+        "choices": [
             "<p>Choice 1</p>",
             "<p>Choice 2</p>",
             "<p>Choice 3</p>"
@@ -64,7 +64,7 @@
         "name": "responseNan",
         "mode": "True False",
         "answer": 1,
-        "choice": ["false", "true"],
+        "choices": ["false", "true"],
         "weighting": 1,
         "comment": ""
     }

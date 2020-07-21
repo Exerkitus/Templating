@@ -1,8 +1,0 @@
-{# Generic response area macro
-  - Applies defaults to provided data
-  - Checks inputs using schema validation
-  - Parses output dictionary #}
-
-{% macro response_area(data, schemas, defaults) -%}
-<span data-source="{{ validate_and_parse_question_data(data, schemas, defaults) }}" id="sro_id_1">&zwnj; </span>
-{%- endmacro  %}

@@ -1,0 +1,149 @@
+
+<courseModule>
+
+  <module>
+    <autoModule>true</autoModule>
+  </module>
+
+  <questions>
+
+    <question uid="2b74f465-717f-4bb8-b3c7-ee0944443294" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+      <mode>Inline</mode>
+      <name>
+        <![CDATA[ 0.0 All Response Area Question [Imported] ]]>
+      </name>
+      <editing>useHTML</editing>
+      <privacy>10</privacy>
+      <allowRepublish>false</allowRepublish>
+      <attributeAuthor>true</attributeAuthor>
+      <modifiedIn>15.0</modifiedIn>
+      <difficulty>0.0</difficulty>
+      <text>
+                  <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1>0.0 All Response Area Question [Imported]</h1>
+            <p class="master-statement">This question tests all the response areas that have been considered and implemented into the templating engine.</p>
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>0.0 List</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>0.0 Maple</p>
+            </li>
+            <li class="tab" id="tab3">
+              <p>0.0 MCQ</p>
+            </li>
+            <li class="tab" id="tab4">
+              <p>0.0 Numeric</p>
+            </li>
+            <li class="tab" id="tab5">
+              <p>0.0 TF</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p>List response area</p>
+
+              <div class="response-wrapper">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <p>Maple response area</p>
+
+              <div class="response-wrapper">
+                <2>
+              </div>
+            </div>
+            <div class="part" id="part3">
+              <p>Non Permuting Multiple Choice response area</p>
+
+              <div class="response-wrapper">
+                <3>
+              </div>
+            </div>
+            <div class="part" id="part4">
+              <p>Numeric response area</p>
+
+              <div class="response-wrapper">
+                <4>
+              </div>
+            </div>
+            <div class="part" id="part5">
+              <p>True/False response area</p>
+
+              <div class="response-wrapper">
+                <5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+      </text>
+      <numbering>alpha</numbering>
+
+      <parts>
+          <part>
+                <mode><![CDATA[ List ]]></mode>
+                <answers><answer><![CDATA[ Option 1 ]]></answer><answer><![CDATA[ Option 2 ]]></answer><answer><![CDATA[ Option 3 ]]></answer></answers>
+                <credits><credit>0.0</credit><credit>1.0</credit><credit>0.0</credit></credits>
+                <name><![CDATA[ responseNan ]]></name>
+                <display permute="true">menu</display>
+                <grader><![CDATA[ exact ]]></grader>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+          <part>
+                <mode><![CDATA[ Maple ]]></mode>
+                <mapleAnswer><![CDATA[ pi ]]></mapleAnswer>
+                <name><![CDATA[ responseNan ]]></name>
+                <type><![CDATA[ maple ]]></type>
+                <plot><![CDATA[  ]]></plot>
+                <allow2d>0</allow2d>
+                <mathConversionMode>0</mathConversionMode>
+                <maple><![CDATA[ evalb(($ANSWER)-($RESPONSE)=0); ]]></maple>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+                <custompreview><![CDATA[  ]]></custompreview>
+          </part>
+          <part>
+                <mode><![CDATA[ Non Permuting Multiple Choice ]]></mode>
+                <answer>1</answer>
+                <choices><choice><![CDATA[ <p>Choice 1</p> ]]></choice><choice><![CDATA[ <p>Choice 2</p> ]]></choice><choice><![CDATA[ <p>Choice 3</p> ]]></choice></choices>
+                <name><![CDATA[ responseNan ]]></name>
+                <display ></display>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+          <part>
+                <mode><![CDATA[ Numeric ]]></mode>
+                <showUnits>True</showUnits>
+                <answer><num>1000</num><units><![CDATA[ kg ]]></units></answer>
+                <name><![CDATA[ responseNan ]]></name>
+                <negStyle><![CDATA[ minus ]]></negStyle>
+                <numStyle><![CDATA[ thousands scientific ]]></numStyle>
+                <grading><![CDATA[ exact_value ]]></grading>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+          <part>
+                <mode><![CDATA[ True False ]]></mode>
+                <answer>1</answer>
+                <name><![CDATA[ responseNan ]]></name>
+                <choices><choice><![CDATA[ false ]]></choice><choice><![CDATA[ true ]]></choice></choices>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+      </parts>
+    </question>
+
+  </questions>
+</courseModule>

@@ -1,0 +1,86 @@
+
+<courseModule>
+
+  <module>
+    <autoModule>true</autoModule>
+  </module>
+
+  <questions>
+
+    <question uid="7eaea653-3ca0-4ecd-a455-eea467d5b4c3" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+      <mode>Inline</mode>
+      <name>
+        <![CDATA[ 64.3 Experimental Upload ]]>
+      </name>
+      <editing>useHTML</editing>
+      <privacy>10</privacy>
+      <allowRepublish>false</allowRepublish>
+      <attributeAuthor>true</attributeAuthor>
+      <modifiedIn>15.0</modifiedIn>
+      <difficulty>0.0</difficulty>
+      <text>
+                  <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1>64.3 Experimental Upload</h1>
+            <p class="master-statement">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!</p>
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>64.3a</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>64.3b</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p>I'm baby hell of food truck austin drinking vinegar. Mustache air plant try-hard blue bottle dreamcatcher actually ugh street art lo-fi polaroid asymmetrical snackwave VHS selfies.</p>
+
+              <div class="response-wrapper">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <p>Knausgaard four dollar toast VHS butcher XOXO man bun sriracha fingerstache.</p>
+
+              <div class="response-wrapper">
+                <2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+      </text>
+      <numbering>alpha</numbering>
+
+      <parts>
+          <part>
+                <mode><![CDATA[ True False ]]></mode>
+                <answer>1</answer>
+                <name><![CDATA[ responseNan ]]></name>
+                <choices><choice><![CDATA[ false ]]></choice><choice><![CDATA[ true ]]></choice></choices>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+          <part>
+                <mode><![CDATA[ List ]]></mode>
+                <answers><answer><![CDATA[ Option 1 ]]></answer><answer><![CDATA[ Option 2 ]]></answer><answer><![CDATA[ Option 3 ]]></answer></answers>
+                <credits><credit>0.0</credit><credit>1.0</credit><credit>0.0</credit></credits>
+                <name><![CDATA[ responseNan ]]></name>
+                <display permute="true">menu</display>
+                <grader><![CDATA[ exact ]]></grader>
+                <weighting>1</weighting>
+                <comment><![CDATA[  ]]></comment>
+          </part>
+      </parts>
+    </question>
+
+  </questions>
+</courseModule>

@@ -1,12 +1,12 @@
 [
     {
         "mode": "List",
-        "answer": [
+        "answers": [
             "Option 1",
             "Option 2",
             "Option 3"
         ],
-        "credit": [
+        "credits": [
             0.0,
             1.0,
             0.0
@@ -14,12 +14,12 @@
     },
     {
         "mode": "Maple",
-        "maple_answer": "5"
+        "mapleAnswer": "5"
     },
     {
         "mode": "Non Permuting Multiple Choice",
         "answer": 1,
-        "choice": [
+        "choices": [
             "<p>Choice 1</p>",
             "<p>Choice 2</p>",
             "<p>Choice 3</p>"
@@ -27,10 +27,9 @@
     },
     {
         "mode": "Numeric",
-        "showUnits": true,
         "answer": {
             "num": 1000,
-            "units": "kg"
+            "units": ""
         }
     },
     {

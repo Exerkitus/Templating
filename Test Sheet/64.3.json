@@ -1,0 +1,33 @@
+{
+   "number": "64.3",
+   "title": "Experimental Upload",
+   "master_statement": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!",
+   "parts": [
+      {
+         "id": "a",
+         "statement": "I'm baby hell of food truck austin drinking vinegar. Mustache air plant try-hard blue bottle dreamcatcher actually ugh street art lo-fi polaroid asymmetrical snackwave VHS selfies.",
+         "response": {
+            "mode": "True False",
+            "answer": 1
+         }
+      },
+      {
+         "id": "b",
+         "statement": "Knausgaard four dollar toast VHS butcher XOXO man bun sriracha fingerstache.",
+         "response": {
+            "mode": "List",
+            "answers": [
+               "Option 1",
+               "Option 2",
+               "Option 3"
+            ],
+            "credits": [
+               0.0,
+               1.0,
+               0.0
+            ]
+         }
+      }
+   ],
+   "uid": "7eaea653-3ca0-4ecd-a455-eea467d5b4c3"
+}
