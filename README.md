@@ -1,11 +1,11 @@
-# Templating
+# Templating V2
+These scripts will generate .xml files to be uploaded directly to mobius
 
 ## How to Use
-To use the generator, simply run the following command,
+To use the generator, simply run the following commands,
 ```
-python generateHTML.py "../Sheets/[path to question]"
+python generateQuestion.py "[path to question]"
+python generateGroup.py "[path to folder containing sheets]"
 ```
 
-Notes:
-  - You must run the python script from the directory it is stored in (running `python [path to script]/generateHTML.py` causes problems for the script's imports)
-  - The extra command line argument is optional and defaults to `question.json`
+*Note: uids are automatically attributed to each question and group to maintain the link with the files which live on the server.*
