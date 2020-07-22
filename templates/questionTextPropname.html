@@ -1,0 +1,36 @@
+{% macro questionText(question) %}
+<link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
+
+<div class="wrapper">
+  <header>
+    <h1><span data-propname="number">{{ question.number }}</span> <span data-propname="title">{{ question.title }}</span></h1>
+    <p class="master-statement" data-propname="master_statement">{{ question.master_statement }}</p>
+  </header>
+
+  <ul class="tabs-container">
+    {% for part in question.parts %}
+    <li class="tab{{ ' active' if loop.first }}" id="tab{{ loop.index }}">
+      <p>({{ question.number }}<span data-propname="parts.{{ loop.index }}.id">{{ part.id }}</span>)</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="parts-container">
+    {% for part in question.parts %}
+    <div class="part{{ ' active' if loop.first }}" id="part{{ loop.index }}">
+      <p data-propname="parts.{{ loop.index }}.statement">{{ part.statement }}</p>
+
+      {% if part.response %}
+      <div class="response-wrapper" data-propname="parts.{{ loop.index }}.response">
+        {# Mark location of response area #}
+        <{{ part.response }}>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ consts.SCRIPTS_LOCATION }}" type="application/javascript">
+  /* Import Custom Javascript Code from the server */
+</script>{% endmacro %}
