@@ -10,7 +10,7 @@
   <ul class="tabs-container">
     {% for part in question.parts %}
     <li class="tab{{ ' active' if loop.first }}" id="tab{{ loop.index }}">
-      <p>{{ question.number }}{{ part.id }}</p>
+      <p>({{ question.number }}{{ part.id }})</p>
     </li>
     {% endfor %}
   </ul>
