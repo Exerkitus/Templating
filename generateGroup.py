@@ -1,9 +1,18 @@
+'''
+TODO: Dynamic Sheet and question numbers
+      Fix the weighting for questions
+      Figure out media imports
+'''
+
 # Public packages
 from jinja2 import Environment, FileSystemLoader
+from uuid import uuid4
 import json
 import os
 import sys
-from uuid import uuid4
+import shutil
+from zipfile import ZipFile
+
 
 # Custom packages
 from datasource.validator import add_defaults_and_validate
@@ -14,6 +23,7 @@ class consts:
     THEME_LOCATION = "/themes/cad8b55c-b186-4899-a406-b92966ee7766"
 ###################
 
+##### FUNCTIONS #####
 # Function imports and sets up the question dict for injecting into the template
 def importQuestion(question_path, SCHEMAS, DEFAULTS):
     # Load question data from file
@@ -50,32 +60,32 @@ with open(os.path.join("datasource", "questions", "defaults.json"), 'r') as file
 
 # Parse optional commandline arguments
 if len(sys.argv) == 2:
-    folder = sys.argv[1]
+    workDir = sys.argv[1]
 else:
-    print("Please specify a path to the folder in which the questions are stored")
+    print("Please specify a path to the directory in which the questions are stored")
     quit()
 
 # Fetch group information
 try:
-    with open(os.path.join(folder, "groupInfo.json"), 'r') as file:
-        groupInfo = json.load(file)
+    with open(os.path.join(workDir, "SheetInfo.json"), 'r') as file:
+        SheetInfo = json.load(file)
 except FileNotFoundError:
-    print("[ERROR] Folder specified does not contain the groupInfo.json file")
+    print("[ERROR] Folder specified does not contain the SheetInfo.json file")
     quit()
 
 # If the group has not been given a uid yet, give it one
-if "uid" not in groupInfo:
-    groupInfo["uid"] = str(uuid4())
+if "uid" not in SheetInfo:
+    SheetInfo["uid"] = str(uuid4())
 
     # Save it, this is important for version control
-    with open(os.path.join(folder, "groupInfo.json"), 'w') as file:
-        json.dump(groupInfo, file, indent=3)
+    with open(os.path.join(workDir, "SheetInfo.json"), 'w') as file:
+        json.dump(SheetInfo, file, indent=3)
 
 # Fetch each question, storing them in a list
 questions = []
-for question_path in os.listdir(folder):
-    if question_path.endswith(".json") and question_path != "groupInfo.json":
-        questions += [importQuestion(os.path.join(folder, question_path), SCHEMAS, DEFAULTS)]
+for question_path in os.listdir(workDir):
+    if question_path.endswith(".json") and question_path != "SheetInfo.json":
+        questions += [importQuestion(os.path.join(workDir, question_path), SCHEMAS, DEFAULTS)]
 
 ####### SETUP TEMPLATING ENVIRONMENT #######
 # Configure jinja environment
@@ -89,13 +99,29 @@ env.globals.update(consts=consts)
 # Load master template from environment
 master = env.get_template("master.xml")
 
-####### RENDER AND EXPORT #######
+####### RENDER, SORT OUT MEDIA AND EXPORT #######
 # Render sheet data using master template
-renderedHTML = master.render(questions=questions, groupInfo=groupInfo)
+renderedXML = master.render(questions=questions, SheetInfo=SheetInfo)
+print("XML Rendered Successfully")
 
-# For debugging
-print(renderedHTML)
+# Create an output folder in the workdir if it doesn't already exist
+if not os.path.exists(os.path.join(workDir, "renders")):
+    os.mkdir(os.path.join(workDir, "renders"))
 
-# Save rendered HTML to File
-with open(os.path.join("renders", f"{groupInfo['name']}.xml"), 'w') as file:
-    file.write(renderedHTML)
+# Save rendered XML to that folder
+with open(os.path.join(workDir, "renders", f"{SheetInfo['name']}.xml"), 'w') as file:
+    file.write(renderedXML)
+
+# If there is media to import, will need to zip .xml and web_folders together
+media_path = os.path.join(workDir, "Media")
+if os.path.isdir(media_path) and os.listdir(media_path):
+    print("Detected Media folder - bundling media files and .xml")
+
+    # Bundle all media files and xml in a zip
+    with ZipFile(os.path.join(workDir, "renders", f"{SheetInfo['name']}.zip"), "w") as zip:
+        # Write the xml file
+        zip.write(os.path.join(workDir, "renders", f"{SheetInfo['name']}.xml"), arcname=f"{SheetInfo['name']}.xml")
+
+        # Write media to web_folders inside of the zip file
+        for media_file in os.listdir(media_path):
+            zip.write(os.path.join(media_path, media_file), arcname=os.path.join("web_folders", f"{SheetInfo['name']}", media_file))

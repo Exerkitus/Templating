@@ -6,15 +6,15 @@
     <autoModule>true</autoModule>
   </module>
 
-  {# Only create a group if groupInfo was specified #}
-  {% if groupInfo %}
+  {# Only create a group if SheetInfo was specified #}
+  {% if SheetInfo %}
     <questionGroups>
-      <group uid="{{ groupInfo.uid }}" weight="1.0">
+      <group uid="{{ SheetInfo.uid }}" weight="1.0">
         <name>
-          <![CDATA[ {{ groupInfo.name }} ]]>
+          <![CDATA[ {{ SheetInfo.name }} ]]>
         </name>
         <description>
-          <![CDATA[ {{ groupInfo.description }} ]]>
+          <![CDATA[ {{ SheetInfo.description }} ]]>
         </description>
         <privacy>10</privacy>
 
