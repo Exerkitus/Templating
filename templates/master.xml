@@ -33,4 +33,19 @@
     {% endfor %}
   </questions>
 
+  {# Folder holding media (Can be specified even if no media is imported) #}
+  <webResources>
+    <folder id="0">
+      <name>
+        <![CDATA[  web_folders  ]]>
+      </name>
+      <description>
+        <![CDATA[    ]]>
+      </description>
+      <uri>
+        <![CDATA[  web_folders  ]]>
+      </uri>
+    </folder>
+  </webResources>
+
 </courseModule>
