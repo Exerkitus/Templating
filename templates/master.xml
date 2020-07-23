@@ -11,7 +11,7 @@
     <questionGroups>
       <group uid="{{ SheetInfo.uid }}" weight="1.0">
         <name>
-          <![CDATA[ {{ SheetInfo.name }} ]]>
+          <![CDATA[ Sheet #{{ SheetInfo.number }} - {{ SheetInfo.name }} ]]>
         </name>
         <description>
           <![CDATA[ {{ SheetInfo.description }} ]]>

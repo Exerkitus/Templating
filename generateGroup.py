@@ -29,10 +29,13 @@ class consts:
 
 ##### FUNCTIONS #####
 # Function imports and sets up the question dict for injecting into the template
-def importQuestion(question_path, SCHEMAS, DEFAULTS):
+def importQuestion(question_path, number, SCHEMAS, DEFAULTS):
     # Load question data from file
     with open(question_path, 'r') as file:
         question = json.load(file)
+
+    # Give question its number - comes from the dynamic numbering of questions in a sheet
+    question["number"] = number
 
     # If the question has not been given a uid yet, give it one
     if "uid" not in question:
@@ -85,11 +88,15 @@ if "uid" not in SheetInfo:
     with open(os.path.join(workDir, "SheetInfo.json"), 'w') as file:
         json.dump(SheetInfo, file, indent=3)
 
+# Setup list of question files to import into the sheet
+question_paths = [os.path.join(workDir, f"{path}.json") for path in SheetInfo["questions"]]
+
 # Fetch each question, storing them in a list
 questions = []
-for question_path in os.listdir(workDir):
-    if question_path.endswith(".json") and question_path != "SheetInfo.json":
-        questions += [importQuestion(os.path.join(workDir, question_path), SCHEMAS, DEFAULTS)]
+number = 1
+for question_path in question_paths:
+    questions += [importQuestion(question_path, f"{SheetInfo['number']}.{number}", SCHEMAS, DEFAULTS)]
+    number += 1
 
 ####### SETUP TEMPLATING ENVIRONMENT #######
 # Configure jinja environment
