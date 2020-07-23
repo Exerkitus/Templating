@@ -2,6 +2,10 @@
 TODO: Dynamic Sheet and question numbers
       Fix the weighting for questions
       Figure out media imports
+
+DATABASE LINK:
+https://imperial.mobius.cloud/third-party/ckfinder/ckfinder.html
+
 '''
 
 # Public packages
@@ -94,7 +98,7 @@ env = Environment(loader=FileSystemLoader("./templates"),
                   lstrip_blocks=True)
 
 # Load globals into the Jinja2 environment
-env.globals.update(consts=consts)
+env.globals.update(consts=consts, sheetName=SheetInfo['name'])
 
 # Load master template from environment
 master = env.get_template("master.xml")
@@ -120,8 +124,10 @@ if os.path.isdir(media_path) and os.listdir(media_path):
     # Bundle all media files and xml in a zip
     with ZipFile(os.path.join(workDir, "renders", f"{SheetInfo['name']}.zip"), "w") as zip:
         # Write the xml file
-        zip.write(os.path.join(workDir, "renders", f"{SheetInfo['name']}.xml"), arcname=f"{SheetInfo['name']}.xml")
+        zip.write(os.path.join(workDir, "renders", f"{SheetInfo['name']}.xml"), arcname=f"manifest.xml")
 
         # Write media to web_folders inside of the zip file
         for media_file in os.listdir(media_path):
             zip.write(os.path.join(media_path, media_file), arcname=os.path.join("web_folders", f"{SheetInfo['name']}", media_file))
+
+print("Done")
