@@ -1,0 +1,294 @@
+
+<courseModule>
+
+  <module>
+    <autoModule>true</autoModule>
+  </module>
+
+    <questionGroups>
+      <group uid="c4c080a8-d4f4-4e32-bfb0-9f1fa831c668" weight="1.0">
+        <name>
+          <![CDATA[ Sheet #64 - Example Sheet ]]>
+        </name>
+        <description>
+          <![CDATA[ Placeholder tutorial sheet used for testing the 'Import Files' feature ]]>
+        </description>
+        <privacy>10</privacy>
+
+        <questions>
+            <qRef uid="037c724d-488b-460a-a450-f26bf4a62f21" weight="1.0"/>
+            <qRef uid="d1af591c-8c15-49c5-bd75-d1b3123da210" weight="2.0"/>
+            <qRef uid="84159eda-cc0f-40bc-b836-5e94309b17eb" weight="3.0"/>
+        </questions>
+      </group>
+    </questionGroups>
+
+  <questions>
+        <question uid="037c724d-488b-460a-a450-f26bf4a62f21" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+    <mode>Inline</mode>
+    <name>
+      <![CDATA[ 64.1 Fundamentals ]]>
+    </name>
+    <editing>useHTML</editing>
+    <privacy>10</privacy>
+    <allowRepublish>false</allowRepublish>
+    <attributeAuthor>true</attributeAuthor>
+    <modifiedIn>15.0</modifiedIn>
+    <difficulty>0.0</difficulty>
+    <text>
+                <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1><span data-propname="number">64.1</span> <span data-propname="title">Fundamentals</span></h1>
+            <p class="master-statement" data-propname="master_statement">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!</p>
+
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>(64.1<span data-propname="parts.1.id">a</span>)</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>(64.1<span data-propname="parts.2.id">b</span>)</p>
+            </li>
+            <li class="tab" id="tab3">
+              <p>(64.1<span data-propname="parts.3.id">c</span>)</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p data-propname="parts.1.statement">Part a</p>
+
+              <div class="response-wrapper" data-propname="parts.1.response">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <div class="medias-container" data-propname="parts.2.media">
+                <div class="media-container">
+          <img alt="Tea" src="__BASE_URI__Example%20Sheet/Tea.jpg" style="width: 80%;">
+        </div>
+              </div>
+              <p data-propname="parts.2.statement">Something something something something something something</p>
+
+            </div>
+            <div class="part" id="part3">
+              <p data-propname="parts.3.statement">Something else.....</p>
+
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+    </text>
+    <numbering>alpha</numbering>
+
+    <parts>
+        <part>
+              <mode><![CDATA[ Non Permuting Multiple Choice ]]></mode>
+              <answer>1</answer>
+              <choices><choice><![CDATA[ <p>Choice 1</p> ]]></choice><choice><![CDATA[ <p>Choice 2</p> ]]></choice><choice><![CDATA[ <p>Choice 3</p> ]]></choice></choices>
+              <name><![CDATA[ responseNan ]]></name>
+              <display ></display>
+              <weighting>1</weighting>
+              <comment><![CDATA[  ]]></comment>
+        </part>
+    </parts>
+  </question>
+
+        <question uid="d1af591c-8c15-49c5-bd75-d1b3123da210" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+    <mode>Inline</mode>
+    <name>
+      <![CDATA[ 64.2 Drag on a ship ]]>
+    </name>
+    <editing>useHTML</editing>
+    <privacy>10</privacy>
+    <allowRepublish>false</allowRepublish>
+    <attributeAuthor>true</attributeAuthor>
+    <modifiedIn>15.0</modifiedIn>
+    <difficulty>0.0</difficulty>
+    <text>
+                <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1><span data-propname="number">64.2</span> <span data-propname="title">Drag on a ship</span></h1>
+            <p class="master-statement" data-propname="master_statement">Which of the following sets of equations represent(s) possible three-dimensional incompressible flow cases?</p>
+
+            <div class="medias-container" data-propname="media">
+              <div class="media-container">
+          <img alt="FileStructureTestingCat" src="__BASE_URI__Example%20Sheet/FileStructureTestingCat.png" style="width: 80%;">
+        </div>
+            </div>
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>(64.2<span data-propname="parts.1.id">a</span>)</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>(64.2<span data-propname="parts.2.id">b</span>)</p>
+            </li>
+            <li class="tab" id="tab3">
+              <p>(64.2<span data-propname="parts.3.id">c</span>)</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p data-propname="parts.1.statement">Obtain an expression for the average density as a function of time.</p>
+
+              <div class="response-wrapper" data-propname="parts.1.response">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <p data-propname="parts.2.statement">Evaluate the rate of change of gas density at \(t = 0\).</p>
+
+              <div class="response-wrapper" data-propname="parts.2.response">
+                <2>
+              </div>
+            </div>
+            <div class="part" id="part3">
+              <p data-propname="parts.3.statement">Graph density as a function of time.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+    </text>
+    <numbering>alpha</numbering>
+
+    <parts>
+        <part>
+              <mode><![CDATA[ Maple ]]></mode>
+              <mapleAnswer><![CDATA[ pi ]]></mapleAnswer>
+              <name><![CDATA[ responseNan ]]></name>
+              <type><![CDATA[ maple ]]></type>
+              <plot><![CDATA[  ]]></plot>
+              <allow2d>0</allow2d>
+              <mathConversionMode>0</mathConversionMode>
+              <maple><![CDATA[ evalb(($ANSWER)-($RESPONSE)=0); ]]></maple>
+              <weighting>1</weighting>
+              <comment><![CDATA[  ]]></comment>
+              <custompreview><![CDATA[  ]]></custompreview>
+        </part>
+        <part>
+              <mode><![CDATA[ Numeric ]]></mode>
+              <showUnits>True</showUnits>
+              <answer><num>1</num><units><![CDATA[ kg ]]></units></answer>
+              <name><![CDATA[ responseNan ]]></name>
+              <negStyle><![CDATA[ minus ]]></negStyle>
+              <numStyle><![CDATA[ thousands scientific ]]></numStyle>
+              <grading><![CDATA[ exact_value ]]></grading>
+              <weighting>1</weighting>
+              <comment><![CDATA[  ]]></comment>
+        </part>
+    </parts>
+  </question>
+
+        <question uid="84159eda-cc0f-40bc-b836-5e94309b17eb" modifiedBy="a9c00f91-c0db-4696-b5c8-d454a0a09c6d" school="20ce8c22-f096-4877-9f6c-bcaa95f1d968">
+    <mode>Inline</mode>
+    <name>
+      <![CDATA[ 64.3 Fin in a micro-pump ]]>
+    </name>
+    <editing>useHTML</editing>
+    <privacy>10</privacy>
+    <allowRepublish>false</allowRepublish>
+    <attributeAuthor>true</attributeAuthor>
+    <modifiedIn>15.0</modifiedIn>
+    <difficulty>0.0</difficulty>
+    <text>
+                <![CDATA[ <link rel="stylesheet" href="/themes/cad8b55c-b186-4899-a406-b92966ee7766">
+
+        <div class="wrapper">
+          <header>
+            <h1><span data-propname="number">64.3</span> <span data-propname="title">Fin in a micro-pump</span></h1>
+            <p class="master-statement" data-propname="master_statement">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!</p>
+
+            <div class="medias-container" data-propname="media">
+              <div class="media-container">
+          <video alt="Test video" controls="true" src="__BASE_URI__Example%20Sheet/Test%20video.mp4" width="80%">&nbsp;</video>
+        </div>
+            </div>
+          </header>
+
+          <ul class="tabs-container">
+            <li class="tab active" id="tab1">
+              <p>(64.3<span data-propname="parts.1.id">a</span>)</p>
+            </li>
+            <li class="tab" id="tab2">
+              <p>(64.3<span data-propname="parts.2.id">b</span>)</p>
+            </li>
+          </ul>
+
+          <div class="parts-container">
+            <div class="part active" id="part1">
+              <p data-propname="parts.1.statement">I'm baby hell of food truck austin drinking vinegar. Mustache air plant try-hard blue bottle dreamcatcher actually ugh street art lo-fi polaroid asymmetrical snackwave VHS selfies.</p>
+
+              <div class="response-wrapper" data-propname="parts.1.response">
+                <1>
+              </div>
+            </div>
+            <div class="part" id="part2">
+              <p data-propname="parts.2.statement">Knausgaard four dollar toast VHS butcher XOXO man bun sriracha fingerstache.</p>
+
+              <div class="response-wrapper" data-propname="parts.2.response">
+                <2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="/web/Pjohnso000/Public_Html/Scripts/QuestionJavaScript.txt" type="application/javascript">
+          /* Import Custom Javascript Code from the server */
+        </script> ]]>
+    </text>
+    <numbering>alpha</numbering>
+
+    <parts>
+        <part>
+              <mode><![CDATA[ True False ]]></mode>
+              <answer>1</answer>
+              <name><![CDATA[ responseNan ]]></name>
+              <choices><choice><![CDATA[ false ]]></choice><choice><![CDATA[ true ]]></choice></choices>
+              <weighting>1</weighting>
+              <comment><![CDATA[  ]]></comment>
+        </part>
+        <part>
+              <mode><![CDATA[ List ]]></mode>
+              <answers><answer><![CDATA[ Option 1 ]]></answer><answer><![CDATA[ Option 2 ]]></answer><answer><![CDATA[ Option 3 ]]></answer></answers>
+              <credits><credit>0.0</credit><credit>1.0</credit><credit>0.0</credit></credits>
+              <name><![CDATA[ responseNan ]]></name>
+              <display permute="true">menu</display>
+              <grader><![CDATA[ exact ]]></grader>
+              <weighting>1</weighting>
+              <comment><![CDATA[  ]]></comment>
+        </part>
+    </parts>
+  </question>
+
+  </questions>
+
+  <webResources>
+    <folder id="0">
+      <name>
+        <![CDATA[  web_folders  ]]>
+      </name>
+      <description>
+        <![CDATA[    ]]>
+      </description>
+      <uri>
+        <![CDATA[  web_folders  ]]>
+      </uri>
+    </folder>
+  </webResources>
+
+</courseModule>

@@ -13,8 +13,12 @@ def get_sheet_from_xml(xml):
 
 def get_question_from_xml(question_xml):
     question = get_question_html_properties(question_xml)
-    parts = get_list_of_part_properties(question_xml)
     
+    question['uid'] = question_xml['uid'] \
+        if "uid" in question_xml.attrs \
+        else None
+
+    parts = get_list_of_part_properties(question_xml)
     add_parts_to_question(question, parts)
     
     return question
@@ -57,7 +61,7 @@ def get_prop_value(prop_xml):
     if prop_xml.find_all():
         return add_deeper_nest(prop_xml)
     elif prop_xml.string:
-        return format_prop_string(prop_xml.string)
+        return cast_prop_string(prop_xml.string)
 
 def add_deeper_nest(prop_xml):
     children = prop_xml.find_all()
@@ -75,20 +79,20 @@ def add_nested_list(prop_xml):
 def add_nested_dictionary(prop_xml):
     return {child.name:get_prop_value(child) for child in prop_xml}
 
-def format_prop_string(value):
-    if match(r'^\s*\d+\s*$', value): # check if int
-        return int(value)
-    elif match(r'^\s*\d+\.\d+\s*$', value): # check if float
-        return float(value)
+def cast_prop_string(prop_string):
+    if match(r'^\s*\d+\s*$', prop_string): # check if int
+        return int(prop_string)
+    elif match(r'^\s*\d+\.\d+\s*$', prop_string): # check if float
+        return float(prop_string)
     else:
-        return value.strip() # remove whitespace at ends of string from CDATA
+        return prop_string.strip() # remove whitespace at ends of string from CDATA
 
 """
 MAIN
 """
 
-with open('./tests/sheet_64.xml', 'r') as xml_sheet_file:
+with open('./tests/sheet_with_media.xml', 'r') as xml_sheet_file:
     xml = BeautifulSoup(xml_sheet_file, 'lxml-xml')
 
-with open('./tests/sheet_64.json', 'w') as json_sheet_file:
+with open('./tests/sheet_with_media.json', 'w') as json_sheet_file:
     dump(get_sheet_from_xml(xml), json_sheet_file, indent=4)

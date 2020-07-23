@@ -1,6 +1,7 @@
+from urllib.parse import unquote
 from bs4 import BeautifulSoup
 from json import load, dump
-from re import search
+from re import match, search
 
 """
 Main Method
@@ -12,9 +13,12 @@ def get_question_data(html):
     for element in elements_with_data_propname_attribute(html):
         properties = get_properties(element['data-propname'])
 
-        value = get_response_value(element.string) \
-            if properties[-1] == "response" \
-            else element.string
+        if properties[-1] == "response":
+            value = get_response_value(element.string)
+        elif properties[-1] == "media":
+            value = get_media_value(element)
+        else:
+            value = element.string
         
         nest_dictionary(question, properties, value)
 
@@ -26,13 +30,30 @@ BeautifulSoup and String Formatting Methods
 
 def elements_with_data_propname_attribute(html):
     return html.find_all(attrs={"data-propname": True})
+ 
+def get_properties(propname):
+    return [int(x) - 1 if x.isdigit() else x for x in propname.split(".")]
 
 def get_response_value(response_string):
     response_tag_match = search(r"<(\d+)>", response_string)
-    return int(response_tag_match.group(1)) - 1 if response_tag_match else None    
+    return int(response_tag_match.group(1)) - 1 if response_tag_match else None   
 
-def get_properties(propname):
-    return [int(x) - 1 if x.isdigit() else x for x in propname.split(".")]
+def get_media_value(medias_html):
+    media_list = []
+    
+    for media_container in medias_html.find_all("div"):
+        media_html = media_container.video \
+            if media_container.video \
+            else media_container.img
+
+        media_list.append(get_filename(media_html['src']))
+
+    return media_list
+
+def get_filename(filepath_string):
+    filepath_match = match(r"^.*\/([^/]+)$", unquote(filepath_string))
+    return filepath_match.group(1) if filepath_match else None
+        
 
 """
 JSON Nesting Methods
