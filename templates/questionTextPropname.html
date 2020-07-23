@@ -1,3 +1,5 @@
+{% from 'addMedia.html' import addMedia %}
+
 {% macro questionTextPropname(question) %}
 <link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
 
@@ -5,6 +7,10 @@
   <header>
     <h1><span data-propname="number">{{ question.number }}</span> <span data-propname="title">{{ question.title }}</span></h1>
     <p class="master-statement" data-propname="master_statement">{{ question.master_statement }}</p>
+
+    {% if question.media %}
+    {{ addMedia(question.media) }}
+    {% endif %}
   </header>
 
   <ul class="tabs-container">
@@ -18,6 +24,9 @@
   <div class="parts-container">
     {% for part in question.parts %}
     <div class="part{{ ' active' if loop.first }}" id="part{{ loop.index }}">
+      {% if part.media %}
+      {{ addMedia(part.media) }}
+      {% endif %}
       <p data-propname="parts.{{ loop.index }}.statement">{{ part.statement }}</p>
 
       {% if part.response %}
