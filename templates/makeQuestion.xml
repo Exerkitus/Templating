@@ -21,7 +21,11 @@ addDisplayParameter %}
         <![CDATA[ {{ questionText(question) }} ]]>
       {% endfilter %}
     </text>
-    {# Removed the <weighting> element from here for now #}
+    <weighting>
+      {%- for _ in question.response_areas -%}
+        {{- "1," if not loop.last else "1" -}}
+      {%- endfor -%}
+    </weighting>
     <numbering>alpha</numbering>
 
     {# Data for each of the response areas marked <text> with their identifiers (<1>, <2>, ...) #}

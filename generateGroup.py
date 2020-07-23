@@ -1,7 +1,5 @@
 '''
-TODO: Dynamic Sheet and question numbers
-      Fix the weighting for questions
-      Figure out media imports
+TODO: Nothing
 
 DATABASE LINK:
 https://imperial.mobius.cloud/third-party/ckfinder/ckfinder.html
