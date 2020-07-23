@@ -9,7 +9,9 @@
     <p class="master-statement" data-propname="master_statement">{{ question.master_statement }}</p>
 
     {% if question.media %}
-    {{ addMedia(question.media) }}
+    <div class="medias-container" data-propname="media">
+      {{ addMedia(question.media) }}
+    </div>
     {% endif %}
   </header>
 
@@ -25,7 +27,9 @@
     {% for part in question.parts %}
     <div class="part{{ ' active' if loop.first }}" id="part{{ loop.index }}">
       {% if part.media %}
-      {{ addMedia(part.media) }}
+      <div class="medias-container" data-propname="parts.{{ loop.index }}.media">
+        {{ addMedia(part.media) }}
+      </div>
       {% endif %}
       <p data-propname="parts.{{ loop.index }}.statement">{{ part.statement }}</p>
 
