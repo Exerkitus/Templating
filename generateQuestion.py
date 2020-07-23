@@ -1,3 +1,10 @@
+print('''
+This script has been shelved for now:
+ - Doesn't support the dynamic numbering of questions
+ - It doesn't make much sence to generate a question by itself anymore
+''')
+quit()
+
 from jinja2 import Environment, FileSystemLoader
 import json
 import os
