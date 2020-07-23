@@ -2,8 +2,9 @@ from bs4 import BeautifulSoup
 from json import load, dump
 from re import search
 
-def elements_with_data_propname_attribute(html):
-    return html.find_all(attrs={"data-propname": True})
+"""
+Main Method
+"""
 
 def extract_question_data(html):
     question = {}
@@ -11,20 +12,31 @@ def extract_question_data(html):
     for element in elements_with_data_propname_attribute(html):
         properties = get_properties(element['data-propname'])
 
-        if properties[-1] == "response":
-            response_tag_match = search("<(\d+)>", element.string)
-            value = int(response_tag_match.group(1)) - 1 \
-                if response_tag_match \
-                else None
-        else:
-            value = element.string
+        value = get_response_value(element.string) \
+            if properties[-1] == "response" \
+            else element.string
         
         nest_dictionary(question, properties, value)
 
     return question
 
+"""
+BeautifulSoup and String Formatting Methods
+"""
+
+def elements_with_data_propname_attribute(html):
+    return html.find_all(attrs={"data-propname": True})
+
+def get_response_value(response_string):
+    response_tag_match = search(r"<(\d+)>", response_string)
+    return int(response_tag_match.group(1)) - 1 if response_tag_match else None    
+
 def get_properties(propname):
     return [int(x) - 1 if x.isdigit() else x for x in propname.split(".")]
+
+"""
+JSON Nesting Methods
+"""
 
 def nest_dictionary(data, props, value):
     if len(props) == 1:
@@ -73,18 +85,3 @@ def fill_null_list(li, length):
     for i in range(length):
         if i > len(li) - 1:
             li.append(None)
-
-"""
-MAIN
-"""
-
-with open('./tests/sheet_64.xml', 'r') as xml_sheet_file:
-    xml = BeautifulSoup(xml_sheet_file, 'html.parser')
-
-
-
-"""
-with open('./tests/test_question_4_4_edited.json', 'w') as json_file:
-    test_json = extract_question_data(html)
-    dump(test_json, json_file, indent=4)
-"""

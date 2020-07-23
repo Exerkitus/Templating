@@ -4,73 +4,88 @@ from json import dump
 
 from get_text_data import extract_question_data
 
-def get_json_from_xml(xml):
-    questions_list = []
+"""
+Main Method
+"""
 
-    for question in get_question_fields(xml):
-        question_dict = get_html_properties(question)
-        parts_list = []
-        
-        for part in get_part_fields(question):
-            parts_list.append(get_part_properties(part))
-        
-        for part in question_dict["parts"]:
-            if "response" in part:
-                part["response"] = parts_list[part["response"]]
-        
-        questions_list.append(question_dict)
+def get_sheet_from_xml(xml):
+    return [get_question_from_xml(q) for q in get_questions(xml)]
 
-    return questions_list
+def get_question_from_xml(question_xml):
+    question = get_question_html_properties(question_xml)
+    parts = get_list_of_part_properties(question_xml)
+    
+    add_parts_to_question(question, parts)
+    
+    return question
 
-
-
-def get_question_fields(xml):
-    return xml.find_all("question", {"uid": True})
-
-def get_html_properties(question):
-    html = get_question_html(question)
+def get_question_html_properties(question_xml):
+    html = get_question_html(question_xml)
     return extract_question_data(html)
 
-def get_question_html(question):
-    html_string = question.find("text").string
+def get_list_of_part_properties(question_xml):
+    return [get_part_properties(p) for p in get_parts(question_xml)]
+
+def add_parts_to_question(question, parts):
+    for p in question["parts"]:
+        if "response" in p:
+            p["response"] = parts[p["response"]]
+
+"""
+BeautifulSoup Methods
+"""
+
+def get_questions(xml):
+    return xml.find_all("question", {"uid": True})
+
+def get_question_html(question_xml):
+    html_string = question_xml.find("text").string
     return BeautifulSoup(html_string, 'html.parser')
 
-def get_part_fields(question):
-    return question.find_all("part")
+def get_parts(question_xml):
+    return question_xml.find_all("part")
 
-def get_part_properties(part):
+def get_part_properties(part_xml):
     part_dict = {}
-    for prop in part.find_all():
-        part_dict[prop.name] = get_xml_dictionary(prop)
+
+    for prop in part_xml.find_all():
+        part_dict[prop.name] = get_prop_dict(prop)
 
     return part_dict
 
-def get_xml_dictionary(prop):
-    if prop.find_all():
-        children = prop.find_all()
-        if all_same_name(children):
-            prop_list = []
-            for child in children:
-                prop_list.append(get_xml_dictionary(child))
-            return prop_list
-        else:
-            prop_dict = {}
-            for child in children:
-                prop_dict[child.name] = get_xml_dictionary(child)
-            return prop_dict
-    elif prop.string:
-        return get_prop_value(prop.string)
+"""
+JSON Nesting Methods
+"""
+
+def get_prop_dict(prop_xml):
+    if prop_xml.find_all():
+        return add_deeper_nest(prop_xml)
+    elif prop_xml.string:
+        return get_prop_value(prop_xml.string)
+
+def add_deeper_nest(prop_xml):
+    children = prop_xml.find_all()
+    if all_same_name(children):
+        return add_nested_list(prop_xml)
+    else:
+        return add_nested_dictionary(prop_xml)
 
 def all_same_name(li):
     return len(li) > 0 and all(x.name == li[0].name for x in li)
 
+def add_nested_list(prop_xml):
+    return [get_prop_dict(child) for child in prop_xml]
+
+def add_nested_dictionary(prop_xml):
+    return {child.name:get_prop_dict(child) for child in prop_xml}
+
 def get_prop_value(value):
-    if match(r'^\s*\d+\s*$', value):
+    if match(r'^\s*\d+\s*$', value): # check if int
         return int(value)
-    elif match(r'^\s*\d+\.\d+\s*$', value):
+    elif match(r'^\s*\d+\.\d+\s*$', value): # check if float
         return float(value)
     else:
-        return value.strip()
+        return value.strip() # remove possible whitespace at ends of string from CDATA
 
 """
 MAIN
@@ -80,11 +95,4 @@ with open('./tests/sheet_64.xml', 'r') as xml_sheet_file:
     xml = BeautifulSoup(xml_sheet_file, 'lxml-xml')
 
 with open('./tests/sheet_64.json', 'w') as json_sheet_file:
-    dump(get_json_from_xml(xml), json_sheet_file, indent=4)
-
-"""
-for q in get_question_fields(xml):
-    parts = get_part_fields(q)
-    for p in parts:
-        print(get_part_properties(p))
-"""
+    dump(get_sheet_from_xml(xml), json_sheet_file, indent=4)
