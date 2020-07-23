@@ -1,3 +1,6 @@
+{% from 'addMedia.html' import addMedia %}
+
+{# Generate the actual question html to be displayed #}
 {% macro questionText(question) %}
 <link rel="stylesheet" href="{{ consts.THEME_LOCATION }}">
 
@@ -5,6 +8,10 @@
   <header>
     <h1>{{ question.number }} {{ question.title }}</h1>
     <p class="master-statement">{{ question.master_statement }}</p>
+
+    {% if question.media %}
+    {{ addMedia(question.media) }}
+    {% endif %}
   </header>
 
   <ul class="tabs-container">
@@ -18,6 +25,10 @@
   <div class="parts-container">
     {% for part in question.parts %}
     <div class="part{{ ' active' if loop.first }}" id="part{{ loop.index }}">
+      {% if part.media %}
+      {{ addMedia(part.media) }}
+      {% endif %}
+
       <p>{{ part.statement }}</p>
 
       {% if part.response %}

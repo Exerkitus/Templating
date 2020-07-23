@@ -1,0 +1,15 @@
+{# Generate the HTML to display addMedia #}
+{% macro addMedia(media) -%}
+<div class="media-container">
+  {% for item in media %}
+  {# Place media in HTML depending of file type #}
+  {% if item[-3:] in ["jpg", "png"] %}
+  <img alt="{{ item[:-4] }}" src="__BASE_URI__{{ sheetName|urlencode }}/{{ item|urlencode }}" style="width: 80%;">
+  {% elif item[-3:] in ["mp4"] %}
+  <video alt="{{ item[:-4] }}" controls="true" src="__BASE_URI__{{ sheetName|urlencode }}/{{ item|urlencode }}" width="80%">&nbsp;</video>
+  {% else %}
+  <!-- Tried to load {{ item }} here-->
+  {% endif %}
+  {% endfor %}
+</div>
+{%- endmacro %}
