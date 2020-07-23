@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from re import match
 from json import dump
 
-from get_text_data import extract_question_data
+from get_html_data import get_question_data
 
 """
 Main Method
@@ -21,7 +21,7 @@ def get_question_from_xml(question_xml):
 
 def get_question_html_properties(question_xml):
     html = get_question_html(question_xml)
-    return extract_question_data(html)
+    return get_question_data(html)
 
 def get_list_of_part_properties(question_xml):
     return [get_part_properties(p) for p in get_parts(question_xml)]
@@ -46,22 +46,18 @@ def get_parts(question_xml):
     return question_xml.find_all("part")
 
 def get_part_properties(part_xml):
-    part_dict = {}
-
-    for prop in part_xml.find_all():
-        part_dict[prop.name] = get_prop_dict(prop)
-
-    return part_dict
+    # finds all children in parts, which are its properties
+    return {prop_xml.name:get_prop_value(prop_xml) for prop_xml in part_xml.find_all()}
 
 """
 JSON Nesting Methods
 """
 
-def get_prop_dict(prop_xml):
+def get_prop_value(prop_xml):
     if prop_xml.find_all():
         return add_deeper_nest(prop_xml)
     elif prop_xml.string:
-        return get_prop_value(prop_xml.string)
+        return format_prop_string(prop_xml.string)
 
 def add_deeper_nest(prop_xml):
     children = prop_xml.find_all()
@@ -74,18 +70,18 @@ def all_same_name(li):
     return len(li) > 0 and all(x.name == li[0].name for x in li)
 
 def add_nested_list(prop_xml):
-    return [get_prop_dict(child) for child in prop_xml]
+    return [get_prop_value(child) for child in prop_xml]
 
 def add_nested_dictionary(prop_xml):
-    return {child.name:get_prop_dict(child) for child in prop_xml}
+    return {child.name:get_prop_value(child) for child in prop_xml}
 
-def get_prop_value(value):
+def format_prop_string(value):
     if match(r'^\s*\d+\s*$', value): # check if int
         return int(value)
     elif match(r'^\s*\d+\.\d+\s*$', value): # check if float
         return float(value)
     else:
-        return value.strip() # remove possible whitespace at ends of string from CDATA
+        return value.strip() # remove whitespace at ends of string from CDATA
 
 """
 MAIN

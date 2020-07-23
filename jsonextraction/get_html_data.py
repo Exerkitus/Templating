@@ -6,7 +6,7 @@ from re import search
 Main Method
 """
 
-def extract_question_data(html):
+def get_question_data(html):
     question = {}
     
     for element in elements_with_data_propname_attribute(html):
