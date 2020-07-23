@@ -86,6 +86,7 @@
           /* Import Custom Javascript Code from the server */
         </script> ]]>
     </text>
+    <weighting>1</weighting>
     <numbering>alpha</numbering>
 
     <parts>
@@ -166,6 +167,7 @@
           /* Import Custom Javascript Code from the server */
         </script> ]]>
     </text>
+    <weighting>1,1</weighting>
     <numbering>alpha</numbering>
 
     <parts>
@@ -253,6 +255,7 @@
           /* Import Custom Javascript Code from the server */
         </script> ]]>
     </text>
+    <weighting>1,1</weighting>
     <numbering>alpha</numbering>
 
     <parts>
