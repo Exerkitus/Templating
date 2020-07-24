@@ -60,7 +60,14 @@ JSON Nesting Methods
 def get_prop_value(prop_xml):
     if prop_xml.find_all():
         return add_deeper_nest(prop_xml)
-    elif prop_xml.string:
+    elif prop_xml.attrs:
+        prop_value = {prop_xml.name: cast_prop_string(prop_xml.string)}
+        
+        for name, value in prop_xml.attrs.items():
+            prop_value[name] = cast_prop_string(value)
+        
+        return prop_value
+    else:
         return cast_prop_string(prop_xml.string)
 
 def add_deeper_nest(prop_xml):
@@ -80,9 +87,15 @@ def add_nested_dictionary(prop_xml):
     return {child.name:get_prop_value(child) for child in prop_xml}
 
 def cast_prop_string(prop_string):
-    if match(r'^\s*\d+\s*$', prop_string): # check if int
+    if not prop_string:
+        return None
+    elif prop_string.lower() == "true":
+        return True
+    elif prop_string.lower() == "false":
+        return False
+    elif match(r'^\d+$', prop_string): # check if int
         return int(prop_string)
-    elif match(r'^\s*\d+\.\d+\s*$', prop_string): # check if float
+    elif match(r'^\d+\.\d+$', prop_string): # check if float
         return float(prop_string)
     else:
         return prop_string.strip() # remove whitespace at ends of string from CDATA

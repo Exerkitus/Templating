@@ -12,13 +12,7 @@ def get_question_data(html):
     
     for element in elements_with_data_propname_attribute(html):
         properties = get_properties(element['data-propname'])
-
-        if properties[-1] == "response":
-            value = get_response_value(element.string)
-        elif properties[-1] == "media":
-            value = get_media_value(element)
-        else:
-            value = element.string
+        value = get_element_value(properties, element)        
         
         nest_dictionary(question, properties, value)
 
@@ -33,6 +27,14 @@ def elements_with_data_propname_attribute(html):
  
 def get_properties(propname):
     return [int(x) - 1 if x.isdigit() else x for x in propname.split(".")]
+
+def get_element_value(properties, element):
+    if properties[-1] == "response":
+        return get_response_value(element.string)
+    elif properties[-1] == "media":
+        return get_media_value(element)
+    else:
+        return element.string
 
 def get_response_value(response_string):
     response_tag_match = search(r"<(\d+)>", response_string)
@@ -51,7 +53,7 @@ def get_media_value(medias_html):
     return media_list
 
 def get_filename(filepath_string):
-    filepath_match = match(r"^.*\/([^/]+)$", unquote(filepath_string))
+    filepath_match = match(r"^.*(?=\/)(?<!\\)\/(.+)$", unquote(filepath_string))
     return filepath_match.group(1) if filepath_match else None
         
 

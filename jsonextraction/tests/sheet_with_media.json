@@ -66,7 +66,7 @@
                 "statement": "Evaluate the rate of change of gas density at \\(t = 0\\).",
                 "response": {
                     "mode": "Numeric",
-                    "showUnits": "True",
+                    "showUnits": true,
                     "answer": {
                         "num": 1,
                         "units": "kg"
@@ -130,7 +130,10 @@
                     ],
                     "credit": 0.0,
                     "name": "responseNan",
-                    "display": "menu",
+                    "display": {
+                        "display": "menu",
+                        "permute": true
+                    },
                     "grader": "exact",
                     "weighting": 1,
                     "comment": ""
