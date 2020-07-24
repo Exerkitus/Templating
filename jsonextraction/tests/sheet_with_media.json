@@ -15,7 +15,6 @@
                         "<p>Choice 2</p>",
                         "<p>Choice 3</p>"
                     ],
-                    "choice": "<p>Choice 3</p>",
                     "name": "responseNan",
                     "display": null,
                     "weighting": 1,
@@ -71,8 +70,6 @@
                         "num": 1,
                         "units": "kg"
                     },
-                    "num": 1,
-                    "units": "kg",
                     "name": "responseNan",
                     "negStyle": "minus",
                     "numStyle": "thousands scientific",
@@ -107,7 +104,6 @@
                         "false",
                         "true"
                     ],
-                    "choice": "true",
                     "weighting": 1,
                     "comment": ""
                 }
@@ -122,13 +118,11 @@
                         "Option 2",
                         "Option 3"
                     ],
-                    "answer": "Option 3",
                     "credits": [
                         0.0,
                         1.0,
                         0.0
                     ],
-                    "credit": 0.0,
                     "name": "responseNan",
                     "display": {
                         "display": "menu",

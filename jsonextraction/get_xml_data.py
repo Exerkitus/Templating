@@ -51,27 +51,30 @@ def get_parts(question_xml):
 
 def get_part_properties(part_xml):
     # finds all children in parts, which are its properties
-    return {prop_xml.name:get_prop_value(prop_xml) for prop_xml in part_xml.find_all()}
+    return {
+        prop_xml.name: get_prop_value(prop_xml) \
+        for prop_xml in part_xml.find_all(recursive=False)
+    }
 
 """
 JSON Nesting Methods
 """
 
 def get_prop_value(prop_xml):
-    if prop_xml.find_all():
+    if prop_xml.find_all(recursive=False):
         return add_deeper_nest(prop_xml)
     elif prop_xml.attrs:
         prop_value = {prop_xml.name: cast_prop_string(prop_xml.string)}
         
         for name, value in prop_xml.attrs.items():
             prop_value[name] = cast_prop_string(value)
-        
+
         return prop_value
     else:
         return cast_prop_string(prop_xml.string)
 
 def add_deeper_nest(prop_xml):
-    children = prop_xml.find_all()
+    children = prop_xml.find_all(recursive=False)
     if all_same_name(children):
         return add_nested_list(prop_xml)
     else:
