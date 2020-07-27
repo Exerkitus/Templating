@@ -107,8 +107,13 @@ def cast_prop_string(prop_string):
 MAIN
 """
 
-with open('./tests/sheet_with_media.xml', 'r') as xml_sheet_file:
+with open('./tests/sheet64.xml', 'r') as xml_sheet_file:
     xml = BeautifulSoup(xml_sheet_file, 'lxml-xml')
 
-with open('./tests/sheet_with_media.json', 'w') as json_sheet_file:
+with open('./tests/sheet64.json', 'w') as json_sheet_file:
     dump(get_sheet_from_xml(xml), json_sheet_file, indent=4)
+
+for question_json in get_sheet_from_xml(xml):
+    del question_json["number"]
+    with open(f'./tests/questions/{question_json["title"]}.json', 'w') as json_sheet_file:
+        dump(question_json, json_sheet_file, indent=4)
