@@ -1,0 +1,11 @@
+{
+    "number": 64,
+    "name": "Example Sheet",
+    "description": "Placeholder tutorial sheet used for testing the 'Import Files' feature",
+    "uid": "c4c080a8-d4f4-4e32-bfb0-9f1fa831c668",
+    "questions": [
+        "Fundamentals",
+        "Drag on a ship",
+        "Fin in a micro-pump"
+    ]
+}

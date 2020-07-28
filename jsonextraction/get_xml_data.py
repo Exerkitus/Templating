@@ -5,19 +5,29 @@ from json import dump
 from get_html_data import get_question_data
 
 """
-Main Method
+Main Methods
 """
 
-def get_sheet_from_xml(xml):
-    return [get_question_from_xml(q) for q in get_questions(xml)]
+def get_sheet_data_from_xml(xml):
+    sheet = get_sheet_info(xml)
+    sheet["questions"] = []
+    questions_list = []
+
+    for question_xml in get_questions(xml):
+        question = get_question_from_xml(question_xml)
+        sheet["questions"].append(question["title"])
+        
+        del question["number"]
+        questions_list.append(question)
+
+    
+    return {"info": sheet, "questions": questions_list}
+
 
 def get_question_from_xml(question_xml):
     question = get_question_html_properties(question_xml)
+    question.update(get_ids(question_xml))
     
-    question['uid'] = question_xml['uid'] \
-        if "uid" in question_xml.attrs \
-        else None
-
     parts = get_list_of_part_properties(question_xml)
     add_parts_to_question(question, parts)
     
@@ -39,6 +49,16 @@ def add_parts_to_question(question, parts):
 BeautifulSoup Methods
 """
 
+def get_sheet_info(xml):
+    group_xml = xml.find("questionGroups").find("group")
+
+    info = get_sheet_name(group_xml.find("name").string)
+    info["description"] = group_xml.find("description").string.strip()
+    
+    info.update(get_ids(group_xml))
+
+    return info
+
 def get_questions(xml):
     return xml.find_all("question", {"uid": True})
 
@@ -59,6 +79,24 @@ def get_part_properties(part_xml):
 """
 JSON Nesting Methods
 """
+
+def get_sheet_name(name_string):
+    name_match = match(r"^\s+Sheet #(?P<number>\d+) - (?P<name>.+)\b\s+$", name_string)
+    sheet_name = name_match.groupdict() if name_match else {}
+    
+    if "number" in sheet_name:
+        sheet_name["number"] = int(sheet_name["number"])
+    
+    return sheet_name
+
+def get_ids(xml):
+    ids_dict = {}
+    
+    for key, value in xml.attrs.items():
+        if key in ["uid", "modifiedBy", "school"]:
+            ids_dict[key] = value
+
+    return ids_dict
 
 def get_prop_value(prop_xml):
     if prop_xml.find_all(recursive=False):
@@ -110,10 +148,11 @@ MAIN
 with open('./tests/sheet64.xml', 'r') as xml_sheet_file:
     xml = BeautifulSoup(xml_sheet_file, 'lxml-xml')
 
-with open('./tests/sheet64.json', 'w') as json_sheet_file:
-    dump(get_sheet_from_xml(xml), json_sheet_file, indent=4)
+sheet_data = get_sheet_data_from_xml(xml)
 
-for question_json in get_sheet_from_xml(xml):
-    del question_json["number"]
-    with open(f'./tests/questions/{question_json["title"]}.json', 'w') as json_sheet_file:
-        dump(question_json, json_sheet_file, indent=4)
+with open('./tests/questions/SheetInfo.json', 'w') as json_sheet_file:
+    dump(sheet_data["info"], json_sheet_file, indent=4)
+
+for question in sheet_data["questions"]:
+    with open(f'./tests/questions/{question["title"]}.json', 'w') as json_file:
+        dump(question, json_file, indent=4)
