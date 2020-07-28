@@ -1,9 +1,6 @@
 '''
-TODO: Nothing
-
 DATABASE LINK:
 https://imperial.mobius.cloud/third-party/ckfinder/ckfinder.html
-
 '''
 
 # Public packages
