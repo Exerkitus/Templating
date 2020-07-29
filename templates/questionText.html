@@ -37,6 +37,41 @@
         <{{ part.response }}>
       </div>
       {% endif %}
+
+      <hr>
+
+      <ul class="answers-nav-container">
+        <li class="final-answer-button btn btn-default" id="fa-btn{{ loop.index }}">
+          <p>Final Answer</p>
+        </li>
+        <li class="worked-solutions-button btn btn-default" id="ws-btn{{ loop.index }}">
+          <p>Worked Solutions</p>
+        </li>
+      </ul>
+
+      <div class="answers-container">
+        {# Putting ifs here, as not all current tests have solns, all should eventually though #}
+        {% if part.final_answer %}
+        <div class="final-answer" id="fa{{ loop.index }}">
+          <p>{{ part.final_answer.text }}</p>
+          {% if part.final_answer.media %}
+          {{ addMedia(part.final_answer.media) }}
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {% if part.worked_solutions %}
+        <div class="worked-solutions" id="ws{{ loop.index }}">
+          {% for soln in part.worked_solutions %}
+          <p>{{ soln.text }}</p>
+          {% if soln.media %}
+          {{ addMedia(soln.media) }}
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
     </div>
     {% endfor %}
   </div>
