@@ -1,3 +1,13 @@
+# TODO
+ - Alt text and captions implementation
+    - Media numbering
+ - Change question importing behaviour to target "name" key in json files
+ - Fix single question renders (idk what to do if no number is specified)
+
+Features in the future:
+ - Store user profile UIDs locally, so if multiple teachers use the tool for the same module, version control is retained. (modifiedBy and school ids)
+
+
 # Templating V2
 These scripts will generate .xml files to be uploaded directly to mobius
 
@@ -10,8 +20,8 @@ python generateGroup.py "[path to folder containing sheets]"
 
 *Note: uids are automatically attributed to each question and group to maintain the link with the files which live on the server.*
 
-## Input Data Structures
-This renderer is very opinionated when it comes to the structure of the data it can use.
+## Input Data
+This tool is very opinionated when it comes to the structure of the data it can use.
 
 ### Folder structure
 ```
@@ -38,3 +48,7 @@ The `SheetInfo.json` file should appear in the folder for any sheet you want to 
 
 ### Question
 These files live in the main sheet directory, and hold the actual content data of each question. This includes any question parts, media references and response areas.
+#### Content
+#### Response areas
+
+### Media
