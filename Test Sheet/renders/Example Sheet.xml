@@ -43,6 +43,9 @@
             <h1>64.1 Fundamentals</h1>
             <p class="master-statement">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!</p>
 
+            <div class="media-container">
+          <video alt="testvideo" controls="true" src="__BASE_URI__Example%20Sheet/testvideo.mp4" width="80%">&nbsp;</video>
+        </div>
           </header>
 
           <ul class="tabs-container">
@@ -65,6 +68,30 @@
               <div class="response-wrapper">
                 <1>
               </div>
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn1">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn1">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+                <div class="final-answer" id="fa1">
+                  <p>\( \begin{equation*} \underbrace{\frac{\partial{}\vec{u}}{\partial{}t}}_{1}+\underbrace{\underline{\underline{\mathrm{grad}}}\!\&gt;(\vec{u})\vec{u}}_{2}=\underbrace{-\frac{1}{\rho}\&gt;\overrightarrow{\mathrm{grad}}{(p)}}_{3}+\underbrace{\vec{g}}_{4}. \end{equation*} \)</p>
+                </div>
+
+                <div class="worked-solutions" id="ws1">
+                  <p>Lorem ipsum dolor sit amet.</p>
+                  <p>Consectetur adipisicing elit.</p>
+                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </div>
+
             </div>
             <div class="part" id="part2">
               <div class="media-container">
@@ -73,10 +100,55 @@
 
               <p>Something something something something something something</p>
 
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn2">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn2">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+                <div class="final-answer" id="fa2">
+                  <p>The final answer is 14</p>
+                </div>
+
+                <div class="worked-solutions" id="ws2">
+                  <p>This is the first step you should take</p>
+                  <p>Here's the second step</p>
+                </div>
+              </div>
+
             </div>
             <div class="part" id="part3">
 
               <p>Something else.....</p>
+
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn3">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn3">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+                <div class="final-answer" id="fa3">
+                  <p>This final answer includes a graph...</p>
+                  <div class="media-container">
+          <img alt="graph" src="__BASE_URI__Example%20Sheet/graph.png" style="width: 80%;">
+        </div>
+                </div>
+
+              </div>
 
             </div>
           </div>
@@ -95,7 +167,7 @@
               <answer>1</answer>
               <choices><choice><![CDATA[ <p>Choice 1</p> ]]></choice><choice><![CDATA[ <p>Choice 2</p> ]]></choice><choice><![CDATA[ <p>Choice 3</p> ]]></choice></choices>
               <name><![CDATA[ responseNan ]]></name>
-              <display ></display>
+              <display>vertical</display>
               <weighting>1</weighting>
               <comment><![CDATA[  ]]></comment>
         </part>
@@ -146,6 +218,22 @@
               <div class="response-wrapper">
                 <1>
               </div>
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn1">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn1">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+
+              </div>
+
             </div>
             <div class="part" id="part2">
 
@@ -154,10 +242,42 @@
               <div class="response-wrapper">
                 <2>
               </div>
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn2">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn2">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+
+              </div>
+
             </div>
             <div class="part" id="part3">
 
               <p>Graph density as a function of time.</p>
+
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn3">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn3">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+
+              </div>
 
             </div>
           </div>
@@ -239,6 +359,22 @@
               <div class="response-wrapper">
                 <1>
               </div>
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn1">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn1">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+
+              </div>
+
             </div>
             <div class="part" id="part2">
 
@@ -247,6 +383,22 @@
               <div class="response-wrapper">
                 <2>
               </div>
+
+              <hr>
+
+              <ul class="answers-nav-container">
+                <li class="final-answer-button btn btn-default" id="fa-btn2">
+                  <p>Final Answer</p>
+                </li>
+                <li class="worked-solutions-button btn btn-default" id="ws-btn2">
+                  <p>Worked Solutions</p>
+                </li>
+              </ul>
+
+              <div class="answers-container">
+
+              </div>
+
             </div>
           </div>
         </div>
